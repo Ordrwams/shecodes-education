@@ -1,0 +1,103 @@
+body {
+  font-family: "Roboto", sans-serif;
+  color: #2e3468;
+  font-size: 18px;
+}
+.container {
+  background-color: #e7eaf6;
+  display: block;
+  margin: 0 auto;
+  padding: 50px;
+  border-radius: 30px;
+}
+
+.weatherCard {
+  background-color: #a2a8d3;
+  text-align: center;
+  border: none;
+  border-radius: 20px;
+  color: white;
+}
+
+.cardsWeather {
+  padding: 20px 0;
+}
+
+.dayOfWeekCard {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.timeCard {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.emojiCard {
+  background-color: #e7eaf6;
+  font-size: 30px;
+  border-radius: 60px;
+  padding: 28px 0;
+}
+
+.temperatureCard {
+  font-size: 20px;
+  font-weight: 700;
+  margin-top: 10px;
+}
+
+.aboutOfDayLine {
+  display: block;
+  padding: 6px 0;
+  text-align: right;
+}
+
+.date {
+  font-weight: 700;
+}
+.aboutOfDay {
+  display: block;
+  padding: 6px 0;
+}
+
+.rowAboutOfDay {
+  margin-top: 30px;
+}
+
+.city {
+  font-size: 34px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 3px 0;
+}
+
+.temperature {
+  font-size: 36px;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 0;
+}
+
+.temperature .degreeC {
+  font-size: 18px;
+}
+.temperature .degreeF {
+  font-size: 18px;
+}
+
+.mainEmoji {
+  text-align: center;
+  background-color: white;
+  font-size: 40px;
+  border-radius: 30px;
+  padding: 32px 0;
+}
+
+.buttons {
+  background: #38598b;
+  border: none;
+}
+
+#nameOfCity {
+  border-radius: 8px;
+}

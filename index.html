@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/style.css" />
+
+    <title>Wheather App</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-9">
+          <form id="form-name-of-city">
+            <input
+              type="text"
+              class="form-control"
+              id="nameOfCity"
+              placeholder="Enter other city"
+            />
+          </form>
+        </div>
+        <div class="col-1">
+          <button
+            type="submit"
+            class="btn btn-primary buttons"
+            id="buttonSearch"
+          >
+            Search
+          </button>
+        </div>
+        <div class="col-2">
+          <button
+            type="submit"
+            class="btn btn-primary buttons"
+            id="buttonCurrentLocation"
+          >
+            Current location
+          </button>
+        </div>
+      </div>
+      <div class="row rowAboutOfDay">
+        <div class="col-2">
+          <div class="mainEmoji">⛅</div>
+        </div>
+        <div class="col-3">
+          <ul>
+            <li class="aboutOfDay city" id="cityName">Poland</li>
+            <li class="aboutOfDay">
+              <span class="temperature"
+                ><span class="valueOfTemp">19</span>°</span
+              >
+              <a href="#" class="degreeC">°C</a>
+              <a href="#" class="degreeF">°F</a>
+            </li>
+          </ul>
+        </div>
+        <div class="col-4">
+          <ul>
+            <li class="aboutOfDay"><strong>Вероятность осадков:</strong> 0%</li>
+            <li class="aboutOfDay"><strong>Влажность:</strong> 33%</li>
+            <li class="aboutOfDay"><strong>Ветер:</strong> 26 км/ч</li>
+          </ul>
+        </div>
+        <div class="col-3">
+          <ul>
+            <li class="aboutOfDayLine date" id="fullDate">06.21.2022</li>
+            <li class="aboutOfDayLine" id="weekDays">Tuesday</li>
+            <li class="aboutOfDayLine" id="time">14:42</li>
+          </ul>
+        </div>
+      </div>
+      <div class="row cardsWeather">
+        <div class="col-2">
+          <div class="card weatherCard">
+            <div class="card-body">
+              <h5 class="card-title dayOfWeekCard">Tuesday</h5>
+              <p class="card-text timeCard">08:00</p>
+              <div class="emojiCard">⛅</div>
+              <p class="card-text temperatureCard">19°</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="card weatherCard">
+            <div class="card-body">
+              <h5 class="card-title dayOfWeekCard">Tuesday</h5>
+              <p class="card-text timeCard">09:00</p>
+              <div class="emojiCard">⛅</div>
+              <p class="card-text temperatureCard">22°</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="card weatherCard">
+            <div class="card-body">
+              <h5 class="card-title dayOfWeekCard">Tuesday</h5>
+              <p class="card-text timeCard">10:00</p>
+              <div class="emojiCard">☀</div>
+              <p class="card-text temperatureCard">21°</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="card weatherCard">
+            <div class="card-body">
+              <h5 class="card-title dayOfWeekCard">Tuesday</h5>
+              <p class="card-text timeCard">11:00</p>
+              <div class="emojiCard">☀</div>
+              <p class="card-text temperatureCard">23°</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="card weatherCard">
+            <div class="card-body">
+              <h5 class="card-title dayOfWeekCard">Tuesday</h5>
+              <p class="card-text timeCard">12:00</p>
+              <div class="emojiCard">☀</div>
+              <p class="card-text temperatureCard">26°</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-2">
+          <div class="card weatherCard">
+            <div class="card-body">
+              <h5 class="card-title dayOfWeekCard">Tuesday</h5>
+              <p class="card-text timeCard">13:00</p>
+              <div class="emojiCard">☀</div>
+              <p class="card-text temperatureCard">27°</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/script.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  </body>
+</html>
