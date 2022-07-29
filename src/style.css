@@ -11,6 +11,14 @@ body {
   border-radius: 30px;
 }
 
+.github {
+  display: block;
+  margin: 0 auto;
+  padding-top: 20px;
+  color: #2e3468;
+  text-align: center;
+}
+
 .weatherCard {
   background-color: #a2a8d3;
   text-align: center;
