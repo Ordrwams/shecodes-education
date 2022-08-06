@@ -30,6 +30,7 @@
               class="form-control"
               id="nameOfCity"
               placeholder="Enter other city"
+              autocomplete="off"
             />
           </form>
         </div>
@@ -70,14 +71,20 @@
         </div>
         <div class="col-4">
           <ul>
-            <li class="aboutOfDay"><strong>Вероятность осадков:</strong> 0%</li>
-            <li class="aboutOfDay"><strong>Влажность:</strong> 33%</li>
-            <li class="aboutOfDay"><strong>Ветер:</strong> 26 км/ч</li>
+            <li class="aboutOfDay">
+              <strong>Pressure:</strong> <span class="pressure">0</span> hPa
+            </li>
+            <li class="aboutOfDay">
+              <strong>Humidity:</strong> <span class="humidity">33</span> %
+            </li>
+            <li class="aboutOfDay">
+              <strong>Wind speed:</strong> <span class="wind">26</span> km/h
+            </li>
           </ul>
         </div>
         <div class="col-3">
           <ul>
-            <li class="aboutOfDayLine date" id="fullDate">06.21.2022</li>
+            <li class="aboutOfDayLine date" id="fullDate">06.03.2022</li>
             <li class="aboutOfDayLine" id="weekDays">Tuesday</li>
             <li class="aboutOfDayLine" id="time">14:42</li>
           </ul>
@@ -146,13 +153,15 @@
         </div>
       </div>
     </div>
-    <div class="col-12 github">
+    <div class="col-9 github-div">
       <a
         href="https://github.com/Ordrwams/shecodes-education.git"
         target="_blank"
         class="github"
-        >GitHub</a
       >
+        Open-source code
+      </a>
+      <small class="name">by Anzhelika Maksimova</small>
     </div>
     <script src="src/script.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
