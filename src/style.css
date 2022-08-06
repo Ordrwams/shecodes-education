@@ -23,6 +23,10 @@ a:hover {
   text-align: center;
   padding-top: 20px;
 }
+
+.description {
+  text-transform: capitalize;
+}
 .github {
   color: #a2a8d3;
   text-decoration: underline;
@@ -111,9 +115,8 @@ a:hover {
 .mainEmoji {
   text-align: center;
   background-color: white;
-  font-size: 40px;
   border-radius: 30px;
-  padding: 32px 0;
+  padding: 10px 0;
 }
 
 .buttons {

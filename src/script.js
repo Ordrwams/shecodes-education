@@ -112,22 +112,28 @@ let tempCur = null; //temparature in current location
 let nameCur = null; // city in current location
 let humidity = document.querySelector(".humidity");
 let wind = document.querySelector(".wind");
-let pressure = document.querySelector(".pressure");
+let description = document.querySelector(".description");
 let temp = document.querySelector(".valueOfTemp");
 let nameCity = document.querySelector("#cityName");
+let iconWeather = document.querySelector("#icon-weather");
 let humidityValue = null;
 let windValue = null;
-let pressureValue = null;
+let descriptionValue = null;
+let iconValue = null;
 //City in search
 function showTemp(response) {
   temp.innerHTML = Math.round(response.data.main.temp);
   temeratureC = Math.round(response.data.main.temp);
   humidity.innerHTML = response.data.main.humidity;
   wind.innerHTML = Math.round(response.data.wind.speed);
-  pressure.innerHTML = response.data.main.pressure;
+  description.innerHTML = response.data.weather[0].description;
   fullDate.innerHTML = formatDate(response.data.dt * 1000);
   weekDays.innerHTML = formatDay(response.data.dt * 1000);
   time.innerHTML = formatTime(response.data.dt * 1000);
+  iconWeather.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
 function nowTemp(response) {
@@ -135,7 +141,8 @@ function nowTemp(response) {
   tempCur = Math.round(response.data.main.temp);
   humidityValue = response.data.main.humidity;
   windValue = Math.round(response.data.wind.speed);
-  pressureValue = response.data.main.pressure;
+  iconValue = response.data.weather[0].icon;
+  descriptionValue = response.data.weather[0].description;
 }
 
 function clickBut() {
@@ -143,8 +150,12 @@ function clickBut() {
   nameCity.innerHTML = nameCur;
   humidity.innerHTML = humidityValue;
   wind.innerHTML = windValue;
-  pressure.innerHTML = pressureValue;
-  console.log("Button clk");
+  iconWeather.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${iconValue}@2x.png`
+  );
+  description.innerHTML = descriptionValue;
+  //console.log("Button clk");
 }
 
 function showPosition(position) {
@@ -182,4 +193,4 @@ let buttonCurrent = document.querySelector("#buttonCurrentLocation");
 buttonCurrent.addEventListener("click", clickBut);
 navigator.geolocation.getCurrentPosition(showPosition);
 
-clickBut();
+showPosition();
