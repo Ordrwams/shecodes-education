@@ -162,12 +162,20 @@ function showPosition(position) {
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(nowTemp);
   console.log("Show Position!");
+  getForecast(position.coords);
 }
 
-function displayForecast() {
+function getForecast(coordinates) {
+  let apiKey = "a74e7a13cd82e24a3df382b1ea681a26";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.latitude}&lon=${coordinates.longitude}&exclude={part}&appid=${apiKey}`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
+  console.log(response.data);
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row cardsWeather">`;
-  let days = ["Sun", "Mon", "Tue", "Wen", "Thur", "Fri", "Sat"];
+  let days = ["Sun", "Mon", "Tue", "Wen", "Thu", "Fri", "Sat"];
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
@@ -187,8 +195,6 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-
-displayForecast();
 
 let degreeF = document.querySelector(".degreeF");
 degreeF.addEventListener("click", ctoF);
