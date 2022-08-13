@@ -155,7 +155,6 @@ function clickBut() {
     `http://openweathermap.org/img/wn/${iconValue}@2x.png`
   );
   description.innerHTML = descriptionValue;
-  //console.log("Button clk");
 }
 
 function showPosition(position) {
@@ -164,24 +163,6 @@ function showPosition(position) {
   axios.get(`${apiUrl}&appid=${apiKey}`).then(nowTemp);
   console.log("Show Position!");
 }
-
-/*let temeratureC = null;
-let F = 0;
-
-function ctoC(event) {
-  event.preventDefault();
-  let temp = document.querySelector(".valueOfTemp");
-  C = ((F - 32) * 5) / 9;
-  temp.innerHTML = Math.round(C);
-}
-
-function ctoF(event) {
-  event.preventDefault();
-  console.log(temeratureC + "@");
-  let temp = document.querySelector(".valueOfTemp");
-  F = temeratureC * (9 / 5) + 32;
-  temp.innerHTML = Math.round(F);
-}*/
 
 let degreeF = document.querySelector(".degreeF");
 degreeF.addEventListener("click", ctoF);
