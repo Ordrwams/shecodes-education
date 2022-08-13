@@ -167,12 +167,15 @@ function showPosition(position) {
 function displayForecast() {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row cardsWeather">`;
-  forecast =
-    forecastHTML +
-    `<div class="col-2">
+  let days = ["Sun", "Mon", "Tue", "Wen", "Thur", "Fri", "Sat"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+      <div class="col-2">
       <div class="card weatherCard">
         <div class="card-body">
-          <h5 class="card-title dayOfWeekCard">Tuesday</h5>
+          <h5 class="card-title dayOfWeekCard"> Tuesd </h5>
           <p class="card-text timeCard">08:00</p>
           <div class="emojiCard">⛅</div>
           <p class="card-text temperatureCard">19°</p>
@@ -180,10 +183,13 @@ function displayForecast() {
       </div>
     </div>
     `;
-  forecast = forecast + `</div>`;
-  forecastElement.innerHTML = forecast;
+  });
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
 }
+
 displayForecast();
+
 let degreeF = document.querySelector(".degreeF");
 degreeF.addEventListener("click", ctoF);
 
