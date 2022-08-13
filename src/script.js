@@ -1,4 +1,5 @@
 // Change name of the city
+
 function typeName() {
   let inputNameOfCity = document.querySelector("#nameOfCity");
   let nameCity = document.querySelector("#cityName");
@@ -161,36 +162,58 @@ function showPosition(position) {
   let apiKey = "a74e7a13cd82e24a3df382b1ea681a26";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?lat=${position.coords.latitude}&lon=${position.coords.longitude}&units=metric`;
   axios.get(`${apiUrl}&appid=${apiKey}`).then(nowTemp);
+
   console.log("Show Position!");
   getForecast(position.coords);
 }
 
 function getForecast(coordinates) {
   let apiKey = "a74e7a13cd82e24a3df382b1ea681a26";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.latitude}&lon=${coordinates.longitude}&exclude={part}&appid=${apiKey}`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.latitude}&lon=${coordinates.longitude}&exclude={part}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
 }
 
+function formatForecastDay(timestamp) {
+  console.log(timestamp);
+  let day = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wen", "Thu", "Fri", "Sat"];
+  return days[day.getDay()];
+}
+
 function displayForecast(response) {
-  console.log(response.data);
+  forecast = response.data.daily;
+
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row cardsWeather">`;
-  let days = ["Sun", "Mon", "Tue", "Wen", "Thu", "Fri", "Sat"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
-      <div class="col-2">
-      <div class="card weatherCard">
-        <div class="card-body">
-          <h5 class="card-title dayOfWeekCard"> Tuesd </h5>
-          <p class="card-text timeCard">08:00</p>
-          <div class="emojiCard">⛅</div>
-          <p class="card-text temperatureCard">19°</p>
-        </div>
-      </div>
-    </div>
-    `;
+
+  //let days = ["Sun", "Mon", "Tue", "Wen", "Thu", "Fri", "Sat"];
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 6) {
+      forecastHTML =
+        forecastHTML +
+        `  <div class="col-2"> 
+        <div class="card weatherCard"> 
+          <div class="card-body"> 
+            <h5 class="card-title dayOfWeekCard"> ${formatForecastDay(
+              forecastDay.dt
+            )} </h5>
+            <div class="emojiCard">
+            <img
+              src="http://openweathermap.org/img/wn/${
+                forecastDay.weather[0].icon
+              }@2x.png"
+              alt="icon"
+              class = "forecastIcon"
+            /></div>
+            <p class="card-text temperatureCard forecastTempMax"> ${Math.round(
+              forecastDay.temp.min
+            )}° <span class = "forecastTempMin">  ${Math.round(
+          forecastDay.temp.max
+        )}° </span></p>
+          </div>
+         </div>
+      </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
@@ -204,6 +227,6 @@ degreeC.addEventListener("click", ctoC);
 
 let buttonCurrent = document.querySelector("#buttonCurrentLocation");
 buttonCurrent.addEventListener("click", clickBut);
-navigator.geolocation.getCurrentPosition(showPosition);
 
+navigator.geolocation.getCurrentPosition(showPosition);
 showPosition();

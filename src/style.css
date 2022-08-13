@@ -67,9 +67,20 @@ a:hover {
 }
 
 .temperatureCard {
-  font-size: 20px;
-  font-weight: 700;
-  margin-top: 10px;
+  display: block;
+  font-size: 16px;
+  font-weight: 500;
+  padding-top: 10px;
+  margin-top: 0 auto;
+}
+
+.forecastIcon {
+  max-width: 80px;
+}
+
+.forecastTempMin {
+  opacity: 70%;
+  font-size: 16px;
 }
 
 .aboutOfDayLine {
