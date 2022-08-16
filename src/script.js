@@ -12,12 +12,20 @@ function typeName() {
 let formNameOfCity = document.querySelector("#form-name-of-city");
 formNameOfCity.addEventListener("submit", typeName);
 
+formNameOfCity.addEventListener("keypress", function (event) {
+  if (event.key === "Enter") {
+    event.preventDefault();
+    document.getElementById("buttonSearch").click();
+  }
+});
+
 let buttonSearchCity = document.querySelector("#buttonSearch");
 if (buttonSearchCity) {
   buttonSearchCity.addEventListener("click", () => {
     console.log(" buttonSearchCity clicked");
   });
 }
+
 buttonSearchCity.addEventListener("click", typeName);
 
 let weekDays = document.querySelector("#weekDays");
@@ -85,6 +93,7 @@ let iconValue = null;
 
 //City in search
 function showTemp(response) {
+  console.log(response.data);
   temp.innerHTML = Math.round(response.data.main.temp);
   temeratureC = Math.round(response.data.main.temp);
   humidity.innerHTML = response.data.main.humidity;
@@ -97,6 +106,7 @@ function showTemp(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+  getForecastInput(response.data.coord);
 }
 
 function nowTemp(response) {
@@ -132,6 +142,15 @@ function showPosition(position) {
 
 let latitude = null;
 let longitude = null;
+
+function getForecastInput(coordinates) {
+  latitude = coordinates.lat;
+  longitude = coordinates.lon;
+
+  let apiKey = "a74e7a13cd82e24a3df382b1ea681a26";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={part}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function getForecast(coordinates) {
   latitude = coordinates.latitude;
